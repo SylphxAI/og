@@ -1,0 +1,14 @@
+{
+  "name": "@sylphxltd/og",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Beautiful Open Graph image generator for GitHub repositories",
+  "keywords": ["og", "open-graph", "social", "preview", "banner", "image", "github"],
+  "scripts": {
+    "dev": "bun --hot index.ts",
+    "start": "bun index.ts"
+  },
+  "dependencies": {
+    "bun-types": "latest"
+  }
+}
