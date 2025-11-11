@@ -40,7 +40,7 @@ Generate images by visiting `/banner` with URL parameters:
 | `icon` | string | ✅ | Emoji icon |
 | `theme` | string | ❌ | `modern`, `minimal`, `vibrant`, `gradient`, `glass`, `tech` (default: `modern`) |
 | `highlight` | string | ❌ | Highlighted text below tagline |
-| `github` | string | ❌ | GitHub URL (defaults to `sylphxltd/{title}`) |
+| `github` | string | ❌ | GitHub URL (defaults to `SylphxAI/{title}`) |
 
 ## 🎨 Themes
 
@@ -142,7 +142,7 @@ bun test
 
 ## 📄 License
 
-MIT © [SylphX](https://github.com/sylphxltd)
+MIT © [SylphX](https://github.com/SylphxAI)
 
 ## 🙏 Credits
 
@@ -152,4 +152,4 @@ Inspired by:
 
 ---
 
-Made with ❤️ by [SylphX](https://github.com/sylphxltd)
+Made with ❤️ by [SylphX](https://github.com/SylphxAI)

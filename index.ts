@@ -18,7 +18,7 @@ function generateBannerHTML(config: BannerConfig): string {
     features,
     gradient,
     icon,
-    github = `github.com/sylphxltd/${title.toLowerCase()}`,
+    github = `github.com/SylphxAI/${title.toLowerCase()}`,
     highlight,
     theme = 'modern',
   } = config;
@@ -376,7 +376,7 @@ function generateLandingPage(): string {
             <p class="subtitle">Beautiful Open Graph images for your GitHub projects</p>
             <div class="hero-buttons">
                 <a href="#themes" class="btn btn-primary">Explore Themes</a>
-                <a href="https://github.com/sylphxltd/og" class="btn btn-secondary">View on GitHub</a>
+                <a href="https://github.com/SylphxAI/og" class="btn btn-secondary">View on GitHub</a>
             </div>
         </div>
     </header>
@@ -454,7 +454,7 @@ function generateLandingPage(): string {
                 </div>
                 <div class="param">
                     <span class="param-name">github</span>
-                    <span class="param-desc">GitHub URL (optional, defaults to sylphxltd/title)</span>
+                    <span class="param-desc">GitHub URL (optional, defaults to SylphxAI/title)</span>
                 </div>
             </div>
 
@@ -476,7 +476,7 @@ function generateLandingPage(): string {
 
     <footer>
         <div class="container">
-            <p>Made with ❤️ by <a href="https://github.com/sylphxltd" style="color: white; font-weight: 600;">SylphX</a></p>
+            <p>Made with ❤️ by <a href="https://github.com/SylphxAI" style="color: white; font-weight: 600;">SylphX</a></p>
             <p style="margin-top: 8px; opacity: 0.8;">Open source • MIT License</p>
         </div>
     </footer>

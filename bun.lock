@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "@sylphxltd/og",
+      "name": "@SylphxAI/og",
       "dependencies": {
         "bun-types": "latest",
       },
