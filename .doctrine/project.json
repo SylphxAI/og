@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "repo": "SylphxAI/og",
+    "name": "og",
+    "lifecycle": "active",
+    "layer": "application",
+    "summary": "URL-driven Open Graph image generator for producing GitHub-oriented social preview banners with documented themes and deployment metadata.",
+    "goals": [
+      "Generate Open Graph images and social preview banners from documented URL parameters.",
+      "Keep route handling, theme definitions, package metadata, and deployment behavior coherent as one product surface.",
+      "Expose only documented image-generation, theme, package, and workflow surfaces to consumers."
+    ],
+    "nonGoals": [
+      "Own enterprise doctrine, project manifest schema, org rulesets, or shared CI and release policy.",
+      "Own downstream product branding strategy or hidden repository-specific marketing copy for another project.",
+      "Own GitHub repository data semantics beyond inputs that are rendered into generated images."
+    ]
+  },
+  "boundaries": {
+    "owns": [
+      {
+        "name": "og-image-service",
+        "description": "HTTP route behavior, request parameters, and response rendering for generated Open Graph images."
+      },
+      {
+        "name": "og-theme-catalog",
+        "description": "Repository-local theme definitions, visual presets, and image composition logic."
+      },
+      {
+        "name": "og-delivery",
+        "description": "Package metadata and central release workflow wiring for publishing the generator."
+      }
+    ],
+    "doesNotOwn": [
+      "Enterprise doctrine, project manifest schema, rollout issue reconciliation, org rulesets, or shared release workflow implementation.",
+      "Product-specific branding requirements for downstream repositories unless represented as documented generator inputs.",
+      "GitHub platform data semantics, repository analytics, or customer-specific social marketing strategy."
+    ],
+    "publicSurfaces": [
+      {
+        "type": "documentation",
+        "name": "Generator README",
+        "location": "README.md"
+      },
+      {
+        "type": "api",
+        "name": "Open Graph image route",
+        "location": "index.ts"
+      },
+      {
+        "type": "api",
+        "name": "Theme definitions",
+        "location": "themes.ts"
+      },
+      {
+        "type": "package-export",
+        "name": "Bun package metadata",
+        "location": "package.json"
+      },
+      {
+        "type": "workflow",
+        "name": "Central release workflow call",
+        "location": ".github/workflows/release.yml"
+      },
+      {
+        "type": "manifest",
+        "name": "Project control-plane manifest",
+        "location": ".doctrine/project.json"
+      }
+    ],
+    "allowedDependencies": [
+      {
+        "repo": "SylphxAI/doctrine",
+        "surface": "project manifest schema, standards, and rollout audit",
+        "direction": "downward"
+      },
+      {
+        "repo": "SylphxAI/.github",
+        "surface": "central reusable release workflow",
+        "direction": "downward"
+      }
+    ],
+    "forbiddenCouplings": [
+      "Do not embed another repository's private branding assumptions as hidden generator behavior.",
+      "Do not require consumers to depend on repository-internal theme implementation details instead of documented route parameters.",
+      "Do not treat a source revert as complete recovery after an image generator deployment has been published without runtime readback or smoke proof.",
+      "Do not publish enterprise process policy from this repository instead of SylphxAI/doctrine."
+    ]
+  },
+  "documentation": {
+    "adr": {
+      "path": "docs/adr/",
+      "status": "planned"
+    },
+    "specs": {
+      "path": "README.md",
+      "status": "present"
+    },
+    "catalog": {
+      "path": ".doctrine/project.json",
+      "status": "present"
+    },
+    "runbooks": {
+      "path": "docs/runbooks/",
+      "status": "planned"
+    },
+    "generatedReferences": {
+      "path": "docs/reference/",
+      "status": "planned"
+    }
+  },
+  "delivery": {
+    "ciModel": "legacy-ci",
+    "requiredContexts": [],
+    "deployPath": "Main-branch pushes call .github/workflows/release.yml, which delegates release handling to the central SylphxAI/.github reusable workflow.",
+    "productionProof": "Production changes require deployment/readback evidence plus generated-image smoke evidence for affected route parameters or themes; this proof is not yet formalized.",
+    "recoveryClass": "forward-fix-only"
+  },
+  "adoption": {
+    "status": "baseline",
+    "gaps": [
+      {
+        "id": "pr-ci-not-declared",
+        "description": "Declare pull-request validation or intentionally document why route/theme changes rely on external validation before full adoption.",
+        "owner": "SylphxAI/og",
+        "target": "Before full adoption"
+      },
+      {
+        "id": "production-proof-missing",
+        "description": "Document deployment readback and generated-image smoke proof required for production image route or theme changes.",
+        "owner": "SylphxAI/og",
+        "target": "Before production-grade operation"
+      },
+      {
+        "id": "runbooks-missing",
+        "description": "Add runbooks for deployment verification, route smoke checks, and forward-fix recovery.",
+        "owner": "SylphxAI/og",
+        "target": "Before commercial-grade operation"
+      }
+    ]
+  }
+}
